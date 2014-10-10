@@ -406,14 +406,14 @@ namespace LeanplumBindings
 		/// attributes will be preserved.
 		/// </summary>
 		/// <param name="attributes">Attributes.</param>
-		[Static, Export ("setUserAttributes")]
+		[Static, Export ("setUserAttributes:")]
 		void SetUserAttributes (NSDictionary attributes);
 
 		/// <summary>
 		/// Updates a user ID after session start.
 		/// </summary>
 		/// <param name="userId">User identifier.</param>
-		[Static, Export ("userId")]
+		[Static, Export ("setUserId:")]
 		void SetUserId (string userId);
 
 		/// <summary>
