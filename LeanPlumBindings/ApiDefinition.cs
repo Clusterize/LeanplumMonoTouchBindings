@@ -53,15 +53,6 @@ namespace LeanplumBindings
 		void SetCanDownloadContentMidSessionInProductionMode (bool canDownload);
 
 		/// <summary>
-		/// Whether to check for new SDK versions.
-		/// By default, Leanplum will check for updates to the Leanplum SDK in development mode
-		/// and notify you when your app starts if an update is available.
-		/// </summary>
-		/// <param name="enabled">If set to <c>true</c> will check for new SDK versions.</param>
-		[Static, Export ("setUpdateCheckingEnabledInDevelopmentMode:")]
-		void SetUpdateCheckingEnabledInDevelopmentMode (bool enabled);
-
-		/// <summary>
 		/// Modifies the file hashing setting in development mode.
 		/// By default, Leanplum will hash file variables to determine if they're modified and need
 		/// to be uploaded to the server if we're running in the simulator.
@@ -71,15 +62,6 @@ namespace LeanplumBindings
 		/// <param name="enabled">If set to <c>true</c> enabled.</param>
 		[Static, Export ("setFileHashingEnabledInDevelopmentMode:")]
 		void SetFileHashingEnabledInDevelopmentMode (bool enabled);
-
-		/// <summary>
-		/// Choose when to show the registration prompt.
-		/// Default: OnlyWhenUnregistered
-		/// </summary>
-		/// <param name="mode">Registration mode.</param>
-		[Static, Export ("setRegistrationRequiredInDevelopmentMode:")]
-		[Obsolete ("Register devices on the Dashboard instead.")]
-		void SetSetRegistrationRequiredInDevelopmentMode (LeanplumRegistrationMode mode);
 
 		// TODO: make internal and pass bool isProduction to call different implementations
 		/// <summary>
@@ -113,8 +95,9 @@ namespace LeanplumBindings
 		/// Syncs resources between Leanplum and the current app.
 		/// You should only call this once, and before Start.
 		/// </summary>
-		[Static, Export ("syncResources")]
-		void SyncResources ();
+		/// <param name = "async">Whether the call should be asynchronous</param>
+		[Static, Export ("syncResources:")]
+		void SyncResources (bool async);
 
 		/// <summary>
 		/// Syncs resources between Leanplum and the current app.
@@ -128,8 +111,9 @@ namespace LeanplumBindings
 		/// <param name = "patternsToExclude">Exclude paths
 		/// matching at least one of these patterns.
 		/// Supply null to indicate no exclusion patterns.</param>
-		[Static, Export ("syncResourcePaths:excluding:")]
-		void SyncResources (NSObject [] patternsToInclude, NSObject [] patternsToExclude);
+		/// <param name = "async">Whether the call should be asynchronous</param>
+		[Static, Export ("syncResourcePaths:excluding:async:")]
+		void SyncResources (NSObject [] patternsToInclude, NSObject [] patternsToExclude, bool async);
 
 		/// <summary>
 		/// Call this when your application starts.
@@ -308,23 +292,6 @@ namespace LeanplumBindings
 		/// <param name="block">Block.</param>
 		[Static, Export ("setShouldOpenNotificationHandler")]
 		void SetShouldOpenNotificationHandler (LeanplumShouldHandleNotificationBlock block);
-
-		// TODO: rework as event
-		/// <summary>
-		/// Block to call when the device needs to be registered in development mode.
-		/// This block will get called instead of the prompt showing up.
-		/// </summary>
-		/// <param name="block">Block.</param>
-		[Static, Export ("onRegisterDevice:")]
-		void OnDeviceRegistering (LeanplumRegisterDeviceBlock block);
-
-		// TODO: rework as event
-		/// <summary>
-		/// Block to call when the device has been registered in development mode.
-		/// </summary>
-		/// <param name="block">Block.</param>
-		[Static, Export ("onRegisterDeviceDidFinish:")]
-		void OnDeviceRegistered (LeanplumRegisterDeviceFinishedBlock block);
 
 		/// <summary>
 		/// Adds a responder to be executed when an event happens.
