@@ -1,6 +1,6 @@
-﻿using MonoTouch.ObjCRuntime;
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
+﻿using ObjCRuntime;
+using Foundation;
+using UIKit;
 using System;
 
 namespace LeanplumBindings
@@ -33,7 +33,7 @@ namespace LeanplumBindings
 		/// </summary>
 		/// <param name="seconds">Timeout for requests in seconds. Default is 10.</param>
 		[Static, Export ("setNetworkTimeoutSeconds:")]
-		void SetNetworkTimeoutSeconds (int seconds);
+		void SetNetworkTimeoutSeconds (nint seconds);
 
 		/// <summary>
 		/// Optional. Adjusts the network timeouts.
@@ -41,7 +41,7 @@ namespace LeanplumBindings
 		/// <param name="seconds">Timeout for requests in seconds. Default is 10.</param>
 		/// <param name="downloadSeconds">Timeout for file downloads in seconds. Default is 15.</param>
 		[Static, Export ("setNetworkTimeoutSeconds:forDownloads:")]
-		void SetNetworkTimeoutSeconds (int seconds, int downloadSeconds);
+		void SetNetworkTimeoutSeconds (nint seconds, nint downloadSeconds);
 
 		/// <summary>
 		/// Advanced: Whether new variables can be downloaded mid-session. By default, this is disabled.
@@ -621,7 +621,7 @@ namespace LeanplumBindings
 		/// <param name="name">Name of the variable.</param>
 		/// <param name="defaultValue">Default value.</param>
 		[Static, Export ("define:withInt:")]
-		LPVar Define (string name, int defaultValue);
+		LPVar Define (string name, nint defaultValue);
 
 		/// <summary>
 		/// Define a LPVar with the specified name and a defaultValue.
@@ -629,7 +629,7 @@ namespace LeanplumBindings
 		/// <param name="name">Name of the variable.</param>
 		/// <param name="defaultValue">Default value.</param>
 		[Static, Export ("define:withFloat:")]
-		LPVar Define (string name, float defaultValue);
+		LPVar Define (string name, nfloat defaultValue);
 
 		/// <summary>
 		/// Define a LPVar with the specified name and a defaultValue.
@@ -701,7 +701,7 @@ namespace LeanplumBindings
 		/// <param name="name">Name of the variable.</param>
 		/// <param name="defaultValue">Default value.</param>
 		[Static, Export ("define:withUnsignedInt:")]
-		LPVar Define (string name, uint defaultValue);
+		LPVar Define (string name, nuint defaultValue);
 
 		/// <summary>
 		/// Define a LPVar with the specified name and a defaultValue.
@@ -824,7 +824,7 @@ namespace LeanplumBindings
 		/// <returns>The at index.</returns>
 		/// <param name="index">Index.</param>
 		[Export ("objectAtIndex:")]
-		NSObject ObjectAtIndex (uint index);
+		NSObject ObjectAtIndex (nuint index);
 
 		/// <summary>
 		/// Accessess the value(s) of the variable.
@@ -847,7 +847,7 @@ namespace LeanplumBindings
 		/// </summary>
 		/// <value>The count.</value>
 		[Export ("count")]
-		uint Count { get; }
+		nuint Count { get; }
 
 		/// <summary>
 		/// Accessess the value(s) of the variable.
@@ -882,7 +882,7 @@ namespace LeanplumBindings
 		/// </summary>
 		/// <value>The int value.</value>
 		[Export ("intValue")]
-		int IntValue { get; }
+		nint IntValue { get; }
 
 		/// <summary>
 		/// Accessess the value(s) of the variable.
@@ -896,14 +896,14 @@ namespace LeanplumBindings
 		/// </summary>
 		/// <value>The cg float value.</value>
 		[Export ("cgFloatValue")]
-		float CgFloatValue { get; }
+		nfloat CgFloatValue { get; }
 
 		/// <summary>
 		/// Accessess the value(s) of the variable.
 		/// </summary>
 		/// <value>The float value.</value>
 		[Export ("floatValue")]
-		float FloatValue { get; }
+		nfloat FloatValue { get; }
 
 		/// <summary>
 		/// Accessess the value(s) of the variable.
@@ -931,7 +931,7 @@ namespace LeanplumBindings
 		/// </summary>
 		/// <value>The long value.</value>
 		[Export ("longValue")]
-		int LongValue { get; }
+		nint LongValue { get; }
 
 		/// <summary>
 		/// Accessess the value(s) of the variable.
@@ -945,7 +945,7 @@ namespace LeanplumBindings
 		/// </summary>
 		/// <value>The integer value.</value>
 		[Export ("integerValue")]
-		int IntegerValue { get; }
+		nint IntegerValue { get; }
 
 		/// <summary>
 		/// Accessess the value(s) of the variable.
@@ -966,21 +966,21 @@ namespace LeanplumBindings
 		/// </summary>
 		/// <value>The unsigned int value.</value>
 		[Export ("unsignedIntValue")]
-		uint UnsignedIntValue { get; }
+		nuint UnsignedIntValue { get; }
 
 		/// <summary>
 		/// Accessess the value(s) of the variable.
 		/// </summary>
 		/// <value>The unsigned integer value.</value>
 		[Export ("unsignedIntegerValue")]
-		uint UnsignedIntegerValue { get; }
+		nuint UnsignedIntegerValue { get; }
 
 		/// <summary>
 		/// Accessess the value(s) of the variable.
 		/// </summary>
 		/// <value>The unsigned long value.</value>
 		[Export ("unsignedLongValue")]
-		uint UnsignedLongValue { get; }
+		nuint UnsignedLongValue { get; }
 
 		/// <summary>
 		/// Accessess the value(s) of the variable.s
