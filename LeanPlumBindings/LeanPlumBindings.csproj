@@ -55,7 +55,4 @@
       <DependentUpon>libLeanplum.a</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Leanplum.h" />
-  </ItemGroup>
 </Project>
