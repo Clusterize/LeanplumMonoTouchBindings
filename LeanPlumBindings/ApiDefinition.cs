@@ -290,7 +290,7 @@ namespace LeanplumBindings
 		/// Overrides the default behavior of showing an alert view with the notification message.
 		/// </summary>
 		/// <param name="block">Block.</param>
-		[Static, Export ("setShouldOpenNotificationHandler")]
+		[Static, Export ("setShouldOpenNotificationHandler:")]
 		void SetShouldOpenNotificationHandler (LeanplumShouldHandleNotificationBlock block);
 
 		/// <summary>
@@ -398,7 +398,7 @@ namespace LeanplumBindings
 		/// </summary>
 		/// <param name="state">The name of the state.</param>
 		[Static, Export ("advanceTo:")]
-		void AdvanceTo (string state);
+		void Advance (string state);
 
 		/// <summary>
 		/// Advances to a particular state in your application. The string can be
@@ -409,7 +409,7 @@ namespace LeanplumBindings
 		/// <param name = "info">Anything else you want to log with the state. For example, if the state
 		/// is watchVideo, info could be the video ID</param>
 		[Static, Export ("advanceTo:withInfo:")]
-		void AdvanceTo (string state, string info);
+		void Advance (string state, string info);
 
 		/// <summary>
 		/// Advances to a particular state in your application. The string can be
@@ -419,7 +419,7 @@ namespace LeanplumBindings
 		/// <param name="state">The name of the state.</param>
 		/// <param name="parameters">A dictionary with custom parameters.</param>
 		[Static, Export ("advanceTo:withParameters:")]
-		void AdvanceTo (string state, NSDictionary parameters);
+		void Advance (string state, NSDictionary parameters);
 
 		/// <summary>
 		/// Advances to a particular state in your application. The string can be
@@ -431,7 +431,7 @@ namespace LeanplumBindings
 		/// is watchVideo, info could be the video ID.</param>
 		/// <param name="parameters">A dictionary with custom parameters.</param>
 		[Static, Export ("advanceTo:withInfo:andParameters:")]
-		void AdvanceTo (string state, string info, NSDictionary parameters);
+		void Advance (string state, string info, NSDictionary parameters);
 
 		/// <summary>
 		/// Pauses the current state.
@@ -570,6 +570,9 @@ namespace LeanplumBindings
 		/// </summary>
 		[Static, Export ("enableTestMode")]
 		void EnableTestMode ();
+
+		[Static, Export ("verboseLoggingInDevelopmentMode")]
+		bool VerboseLoggingInDevelopmentMode { set; }
 	}
 
 	[BaseType (typeof (NSObject))]
