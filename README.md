@@ -1,4 +1,4 @@
-LeanplumMonoTouchBindings
+Leanplum Xamarin.iOS Bindings
 =========================
 
 Xamarin.iOS bindings for the Leanplum iOS SDK.
