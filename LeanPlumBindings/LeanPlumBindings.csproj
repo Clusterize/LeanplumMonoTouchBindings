@@ -49,10 +49,18 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
   <ItemGroup>
     <ObjcBindingNativeLibrary Include="libLeanplum.a" />
+    <ObjcBindingNativeLibrary Include="libLeanplumBeacon.a" />
+    <ObjcBindingNativeLibrary Include="libLeanplumLocation.a" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="libLeanplum.linkwith.cs">
       <DependentUpon>libLeanplum.a</DependentUpon>
+    </Compile>
+    <Compile Include="libLeanplumBeacon.linkwith.cs">
+      <DependentUpon>libLeanplumBeacon.a</DependentUpon>
+    </Compile>
+    <Compile Include="libLeanplumLocation.linkwith.cs">
+      <DependentUpon>libLeanplumLocation.a</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>
